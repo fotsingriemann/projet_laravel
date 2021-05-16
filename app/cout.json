@@ -1,0 +1,119 @@
+{
+    "fields": [
+        {
+            "name": "date",
+            "type": "date"
+        },
+        {
+            "name": "nature",
+            "type": "string"
+        },
+        {
+            "name": "numero_cout",
+            "type": "string"
+        },
+        {
+            "name": "designation",
+            "type": "string"
+        },
+
+        {
+            "name": "quantite",
+            "type": "integer"
+        },
+        {
+            "name": "prix_unitaire",
+            "type": "integer"
+        },
+        {
+            "name": "prix_total",
+            "type": "integer"
+        },
+        {
+            "name": "sous_total",
+            "type": "integer"
+        },
+        {
+            "name": "taxe_vente",
+            "type": "integer"
+        },
+        {
+            "name": "total",
+            "type": "integer"
+        },
+        {
+            "name": "total_en_lettre",
+            "type": "string"
+        },
+        {
+            "name": "reparation_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "reparation_id",
+            "references": "id",
+            "on": "reparations",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "reparation_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\reparation"
+        }
+    ],
+    "validations": [
+        {
+            "field": "date",
+            "rules": "required"
+        },
+        {
+            "field": "nature",
+            "rules": "required"
+        },
+        {
+            "field": "numero_cout",
+            "rules": "required"
+        },
+        {
+            "field": "designation",
+            "rules": "required"
+        },
+        {
+            "field": "quantite",
+            "rules": "required"
+        },
+        {
+            "field": "prix_unitaire",
+            "rules": "required"
+        },
+        {
+            "field": "prix_total",
+            "rules": "required"
+        },
+        {
+            "field": "sous_total",
+            "rules": "required"
+        },
+        {
+            "field": "taxe_vente",
+            "rules": "required"
+        },
+        {
+            "field": "total",
+            "rules": "required"
+        },
+        {
+            "field": "total_en_lettre",
+            "rules": "required"
+        },
+        {
+            "field": "reparation_id",
+            "rules": "required|exists:reparations,id"
+        }
+    ]
+}

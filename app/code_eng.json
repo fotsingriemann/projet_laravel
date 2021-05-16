@@ -1,0 +1,82 @@
+{
+    "fields": [
+        {
+            "name": "visite_technique",
+            "type": "file"
+        },
+        {
+            "name": "engin",
+            "type": "string"
+        },
+        {
+            "name": "immatriculation",
+            "type": "string"
+        },
+        {
+            "name": "date_debut_val",
+            "type": "date"
+        },
+        {
+            "name": "date_fin_val",
+            "type": "date"
+        },
+        {
+            "name": "effectuer_par",
+            "type": "string"
+        },
+        {
+            "name": "piece_jointe",
+            "type": "file"
+        },
+        {
+            "name": "engin_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "engin_id",
+            "references": "id",
+            "on": "engins",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "engin_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\engin"
+        }
+    ],
+    "validations": [
+        {
+            "field": "visite_technique",
+            "rules": "required"
+        },
+        {
+            "field": "date_debut_val",
+            "rules": "required"
+        },
+        {
+            "field": "date_fin_val",
+            "rules": "required"
+        },
+        {
+            "field": "effectuer_par",
+            "rules": "required"
+        },
+        {
+            "field": "engin",
+            "rules": "required"
+        },
+        {
+            "field": "immatriculation",
+            "rules": "required"
+        },
+        {
+            "field": "engin_id",
+            "rules": "required|exists:engins,id"
+        }
+    ]
+}

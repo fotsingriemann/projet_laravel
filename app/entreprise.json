@@ -1,0 +1,104 @@
+{
+    "fields": [
+        {
+            "name": "logo",
+            "type": "file"
+        },
+        {
+            "name": "nom_client",
+            "type": "string"
+        },
+        {
+            "name": "localisation",
+            "type": "string"
+        },
+        {
+            "name": "telephone1",
+            "type": "integer"
+        },
+        {
+            "name": "telephone2",
+            "type": "integer"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "horaire_ouverture",
+            "type": "string"
+        },
+        {
+            "name": "jours_ouverture",
+            "type": "string"
+        },
+        {
+            "name": "nombre_engin",
+            "type": "string"
+        },
+        {
+            "name": "nature_engin",
+            "type": "string"
+        },
+        {
+            "name": "responsable",
+            "type": "string"
+        },
+        {
+            "name": "secteur_activite",
+            "type": "string"
+        },
+        {
+            "name": "sites",
+            "type": "string"
+        }
+
+    ],
+
+    "validations": [
+        {
+            "field": "nom_client",
+            "rules": "required"
+        },
+        {
+            "field": "telephone1",
+            "rules": "required"
+        },
+        {
+            "field": "telephone2",
+            "rules": "required"
+        },
+        {
+            "field": "email",
+            "rules": "required"
+        },
+        {
+            "field": "horaire_ouverture",
+            "rules": "required"
+        },
+        {
+            "field": "jours_ouverture",
+            "rules": "required"
+        },
+        {
+            "field": "nombre_engin",
+            "rules": "required"
+        },
+        {
+            "field": "nature_engin",
+            "rules": "required"
+        },
+        {
+            "field": "responsable",
+            "rules": "required"
+        },
+        {
+            "field": "secteur_activite",
+            "rules": "required"
+        },
+        {
+            "field": "sites",
+            "rules": "required"
+        }
+    ]
+}

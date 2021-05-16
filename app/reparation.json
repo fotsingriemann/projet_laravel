@@ -1,0 +1,103 @@
+{
+    "fields": [
+        {
+            "name": "date",
+            "type": "date"
+        },
+        {
+            "name": "engin",
+            "type": "string"
+        },
+        {
+            "name": "immatriculation",
+            "type": "string"
+        },
+        {
+            "name": "marque",
+            "type": "string"
+        },
+
+        {
+            "name": "compteur",
+            "type": "string"
+        },
+        {
+            "name": "macanicien",
+            "type": "string"
+        },
+        {
+            "name": "fiche_de_suivi",
+            "type": "file"
+        },
+        {
+            "name": "preuve_de_reparation",
+            "type": "file"
+        },
+        {
+            "name": "observaton",
+            "type": "string"
+        },
+        {
+            "name": "engin_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "engin_id",
+            "references": "id",
+            "on": "engins",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "engin_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\engin"
+        }
+    ],
+    "validations": [
+        {
+            "field": "date",
+            "rules": "required"
+        },
+        {
+            "field": "engin",
+            "rules": "required"
+        },
+        {
+            "field": "immatriculation",
+            "rules": "required"
+        },
+        {
+            "field": "marque",
+            "rules": "required"
+        },
+        {
+            "field": "compteur",
+            "rules": "required"
+        },
+        {
+            "field": "mecanicien",
+            "rules": "required"
+        },
+        {
+            "field": "fiche_de_suivi",
+            "rules": "required"
+        },
+        {
+            "field": "preuve_de_reparation",
+            "rules": "required"
+        },
+        {
+            "field": "observaton",
+            "rules": "required"
+        },
+        {
+            "field": "engin_id",
+            "rules": "required|exists:engins,id"
+        }
+    ]
+}

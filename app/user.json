@@ -1,0 +1,130 @@
+{
+    "fields": [
+        {
+            "name": "nom_et_prenom",
+            "type": "string"
+        },
+        {
+            "name": "telephone1",
+            "type": "integer"
+        },
+        {
+            "name": "telephone2",
+            "type": "integer"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "sexe",
+            "type": "string"
+        },
+        {
+            "name": "statut_matrimonial",
+            "type": "string"
+        },
+        {
+            "name": "nombre_enfant",
+            "type": "string"
+        },
+        {
+            "name": "localisation",
+            "type": "string"
+        },
+        {
+            "name": "personne_a_contacter",
+            "type": "string"
+        },
+        {
+            "name": "telephone",
+            "type": "integer"
+        },
+        {
+            "name": "role",
+            "type": "string"
+        },
+        {
+            "name": "photo",
+            "type": "file"
+        },
+        {
+            "name": "photo_cni",
+            "type": "file"
+        },
+        {
+            "name": "entreprise_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "entreprise_id",
+            "references": "id",
+            "on": "entreprises",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "entreprise_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\entreprise"
+        }
+    ],
+    "validations": [
+        {
+            "field": "nom_et_prenom",
+            "rules": "required"
+        },
+        {
+            "field": "telephone1",
+            "rules": "required"
+        },
+        {
+            "field": "telephone2",
+            "rules": "required"
+        },
+        {
+            "field": "email",
+            "rules": "required"
+        },
+        {
+            "field": "sexe",
+            "rules": "required"
+        },
+        {
+            "field": "statut_matrimonial",
+            "rules": "required"
+        },
+        {
+            "field": "nombre_enfant",
+            "rules": "required"
+        },
+        {
+            "field": "personne_a_contacter",
+            "rules": "required"
+        },
+        {
+            "field": "telephone",
+            "rules": "required"
+        },
+        {
+            "field": "role",
+            "rules": "required"
+        },
+        {
+            "field": "photo",
+            "rules": "required"
+        },
+        {
+            "field": "photo_cni",
+            "rules": "required"
+        },
+        {
+            "field": "entreprise_id",
+            "rules": "required|exists:entreprises,id"
+        }
+    ]
+}

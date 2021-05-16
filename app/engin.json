@@ -1,0 +1,110 @@
+{
+    "fields": [
+        {
+            "name": "type_engin",
+            "type": "string"
+        },
+        {
+            "name": "immatriculation",
+            "type": "string"
+        },
+        {
+            "name": "marque_serie",
+            "type": "string"
+        },
+        {
+            "name": "modele",
+            "type": "string"
+        },
+        {
+            "name": "numero_chassis",
+            "type": "string"
+        },
+        {
+            "name": "date_de_mise_en_circulation",
+            "type": "string"
+        },
+        {
+            "name": "carburant",
+            "type": "string"
+        },
+        {
+            "name": "couleur",
+            "type": "string"
+        },
+        {
+            "name": "conduit_par",
+            "type": "string"
+        },
+        {
+            "name": "Image",
+            "type": "file"
+        },
+        {
+            "name": "entreprise_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "entreprise_id",
+            "references": "id",
+            "on": "entreprises",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "entreprise_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\entreprise"
+        }
+    ],
+    "validations": [
+        {
+            "field": "type_engin",
+            "rules": "required"
+        },
+        {
+            "field": "immatriculation",
+            "rules": "required"
+        },
+        {
+            "field": "marque_serie",
+            "rules": "required"
+        },
+        {
+            "field": "modele",
+            "rules": "required"
+        },
+        {
+            "field": "numero_chassis",
+            "rules": "required"
+        },
+        {
+            "field": "date_de_mise_en_circulation",
+            "rules": "required"
+        },
+        {
+            "field": "carburant",
+            "rules": "required"
+        },
+        {
+            "field": "couleur",
+            "rules": "required"
+        },
+        {
+            "field": "conduit_par",
+            "rules": "required"
+        },
+        {
+            "field": "Image",
+            "rules": "required"
+        },
+        {
+            "field": "entreprise_id",
+            "rules": "required|exists:entreprises,id"
+        }
+    ]
+}
