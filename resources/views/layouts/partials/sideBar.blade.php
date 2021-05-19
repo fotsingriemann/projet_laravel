@@ -59,14 +59,60 @@
                             
                         </li>
 
-                        <li>
-                            <a href="{{url('admin/engindoc')}}">
+                          <li>
+                            <a href="{{url('admin/engintype')}}">
                                 <!-- <i class="metismenu-icon"></i> -->
-                                Docs engin
+                                Type engin
                                 <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                             </a>
                             
                         </li>
+
+                        <li>
+                            <a href="index.html#">
+                                <i class="metismenu-icon"></i>
+                                Engin Documment
+                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                            </a>
+
+                            <ul>
+
+                                 <li>
+                                    <a href="{{url('admin/assurance')}}">
+                                        <!-- <i class="metismenu-icon"></i> -->
+                                        Assurance
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                    </a>
+
+                                <li>
+                                    <a href="{{url('admin/patente')}}">
+                                        <!-- <i class="metismenu-icon"></i> -->
+                                        Patente | taxe 
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url('admin/visite-technique')}}">
+                                        <!-- <i class="metismenu-icon"></i> -->
+                                        Visite technique
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                    </a>
+                                <li>
+
+                                <ul>
+
+
+
+                                
+
+                         </li>
+                        
+
+                            
+                        
+
+                      
 
                     </ul>
                 </li>

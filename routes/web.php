@@ -27,5 +27,9 @@ Route::get('/test', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('admin/entreprise', 'App\Http\Controllers\Admin\EntrepriseController');
+Route::resource('admin/user', 'App\Http\Controllers\Admin\UserController');
+Route::resource('admin/engintype', 'App\Http\Controllers\Admin\EngintypeController');
 Route::resource('admin/engin', 'App\Http\Controllers\Admin\EnginController');
-Route::resource('admin/engindoc', 'App\Http\Controllers\Admin\EngindocController');
+Route::resource('admin/patente', 'App\Http\Controllers\Admin\PatenteController');
+Route::resource('admin/visite-technique', 'App\Http\Controllers\Admin\VisiteTechniqueController');
+Route::resource('admin/assurance', 'App\Http\Controllers\Admin\AssuranceController');

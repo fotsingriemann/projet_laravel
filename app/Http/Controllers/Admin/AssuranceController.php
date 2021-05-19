@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
-use App\Models\Engindoc;
+use App\Models\Engin;
+use App\Models\Assurance;
 use Illuminate\Http\Request;
 
-class EngindocController extends Controller
+class AssuranceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,21 +20,11 @@ class EngindocController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        if (!empty($keyword)) {
-            $engindoc = Engindoc::where('visite_technique', 'LIKE', "%$keyword%")
-                ->orWhere('engin', 'LIKE', "%$keyword%")
-                ->orWhere('immatriculation', 'LIKE', "%$keyword%")
-                ->orWhere('date_debut_val', 'LIKE', "%$keyword%")
-                ->orWhere('date_fin_val', 'LIKE', "%$keyword%")
-                ->orWhere('effectuer_par', 'LIKE', "%$keyword%")
-                ->orWhere('piece_jointe', 'LIKE', "%$keyword%")
-                ->orWhere('engin_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
-            $engindoc = Engindoc::latest()->paginate($perPage);
-        }
+     
+            $assurance = Assurance::latest()->paginate($perPage);
+        
 
-        return view('admin.engindoc.index', compact('engindoc'));
+        return view('admin.assurance.index', compact('assurance'));
     }
 
     /**
@@ -44,7 +34,8 @@ class EngindocController extends Controller
      */
     public function create()
     {
-        return view('admin.engindoc.create');
+        $engins = Engin::all();
+        return view('admin.assurance.create',compact('engins'));
     }
 
     /**
@@ -57,27 +48,22 @@ class EngindocController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'visite_technique' => 'required',
+			'immatriculation' => 'required',
 			'date_debut_val' => 'required',
 			'date_fin_val' => 'required',
-			'effectuer_par' => 'required',
-			'engin' => 'required',
-			'immatriculation' => 'required',
+			'piece_jointe' => 'required',
+			'montant' => 'required',
 			'engin_id' => 'required|exists:engins,id'
 		]);
         $requestData = $request->all();
-                if ($request->hasFile('visite_technique')) {
-            $requestData['visite_technique'] = $request->file('visite_technique')
-                ->store('uploads', 'public');
-        }
-        if ($request->hasFile('piece_jointe')) {
+                if ($request->hasFile('piece_jointe')) {
             $requestData['piece_jointe'] = $request->file('piece_jointe')
                 ->store('uploads', 'public');
         }
 
-        Engindoc::create($requestData);
+        Assurance::create($requestData);
 
-        return redirect('admin/engindoc')->with('flash_message', 'Engindoc added!');
+        return redirect('admin/assurance')->with('flash_message', 'Assurance added!');
     }
 
     /**
@@ -89,9 +75,9 @@ class EngindocController extends Controller
      */
     public function show($id)
     {
-        $engindoc = Engindoc::findOrFail($id);
+        $assurance = Assurance::findOrFail($id);
 
-        return view('admin.engindoc.show', compact('engindoc'));
+        return view('admin.assurance.show', compact('assurance'));
     }
 
     /**
@@ -103,9 +89,9 @@ class EngindocController extends Controller
      */
     public function edit($id)
     {
-        $engindoc = Engindoc::findOrFail($id);
+        $assurance = Assurance::findOrFail($id);
 
-        return view('admin.engindoc.edit', compact('engindoc'));
+        return view('admin.assurance.edit', compact('assurance'));
     }
 
     /**
@@ -119,28 +105,23 @@ class EngindocController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'visite_technique' => 'required',
+			'immatriculation' => 'required',
 			'date_debut_val' => 'required',
 			'date_fin_val' => 'required',
-			'effectuer_par' => 'required',
-			'engin' => 'required',
-			'immatriculation' => 'required',
+			'piece_jointe' => 'required',
+			'montant' => 'required',
 			'engin_id' => 'required|exists:engins,id'
 		]);
         $requestData = $request->all();
-                if ($request->hasFile('visite_technique')) {
-            $requestData['visite_technique'] = $request->file('visite_technique')
-                ->store('uploads', 'public');
-        }
-        if ($request->hasFile('piece_jointe')) {
+                if ($request->hasFile('piece_jointe')) {
             $requestData['piece_jointe'] = $request->file('piece_jointe')
                 ->store('uploads', 'public');
         }
 
-        $engindoc = Engindoc::findOrFail($id);
-        $engindoc->update($requestData);
+        $assurance = Assurance::findOrFail($id);
+        $assurance->update($requestData);
 
-        return redirect('admin/engindoc')->with('flash_message', 'Engindoc updated!');
+        return redirect('admin/assurance')->with('flash_message', 'Assurance updated!');
     }
 
     /**
@@ -152,8 +133,8 @@ class EngindocController extends Controller
      */
     public function destroy($id)
     {
-        Engindoc::destroy($id);
+        Assurance::destroy($id);
 
-        return redirect('admin/engindoc')->with('flash_message', 'Engindoc deleted!');
+        return redirect('admin/assurance')->with('flash_message', 'Assurance deleted!');
     }
 }

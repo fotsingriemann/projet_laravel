@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Engindoc extends Model
+class Engintype extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'engindocs';
+    protected $table = 'engintypes';
 
     /**
     * The database primary key value.
@@ -25,11 +25,7 @@ class Engindoc extends Model
      *
      * @var array
      */
-    protected $fillable = ['visite_technique', 'engin', 'immatriculation', 'date_debut_val', 'date_fin_val', 'effectuer_par', 'piece_jointe', 'engin_id'];
+    protected $fillable = ['Type_engin', 'Description'];
 
-    public function engin_id()
-    {
-        return $this->belongsTo('App\Models\engin');
-    }
     
 }

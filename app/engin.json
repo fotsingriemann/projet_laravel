@@ -1,9 +1,10 @@
 {
     "fields": [
         {
-            "name": "type_engin",
+            "name": "engin_name",
             "type": "string"
         },
+
         {
             "name": "immatriculation",
             "type": "string"
@@ -22,7 +23,7 @@
         },
         {
             "name": "date_de_mise_en_circulation",
-            "type": "string"
+            "type": "date"
         },
         {
             "name": "carburant",
@@ -43,6 +44,10 @@
         {
             "name": "entreprise_id",
             "type": "integer#unsigned"
+        },
+        {
+            "name": "engintype_id",
+            "type": "integer#unsigned"
         }
 
     ],
@@ -52,6 +57,12 @@
             "references": "id",
             "on": "entreprises",
             "onDelete": "cascade"
+        },
+        {
+            "column": "engintype_id",
+            "references": "id",
+            "on": "engintypes",
+            "onDelete": "cascade"
         }
     ],
     "relationships": [
@@ -59,11 +70,16 @@
             "name": "entreprise_id",
             "type": "belongsTo",
             "class": "App\\Models\\entreprise"
+        },
+        {
+            "name": "engintype_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\engintype"
         }
     ],
     "validations": [
         {
-            "field": "type_engin",
+            "field": "engin_name",
             "rules": "required"
         },
         {
@@ -105,6 +121,10 @@
         {
             "field": "entreprise_id",
             "rules": "required|exists:entreprises,id"
+        },
+        {
+            "field": "engintype_id",
+            "rules": "required|exists:engintype,id"
         }
     ]
 }

@@ -1,0 +1,74 @@
+{
+    "fields": [
+        {
+            "name": "assureur",
+            "type": "string"
+        },
+        {
+            "name": "montant",
+            "type": "integer"
+        },
+        {
+            "name": "immatriculation",
+            "type": "string"
+        },
+        {
+            "name": "date_debut_val",
+            "type": "date"
+        },
+        {
+            "name": "date_fin_val",
+            "type": "date"
+        },
+        {
+            "name": "piece_jointe",
+            "type": "file"
+        },
+        {
+            "name": "engin_id",
+            "type": "integer#unsigned"
+        }
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "engin_id",
+            "references": "id",
+            "on": "engins",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "engin_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\engin"
+        }
+    ],
+    "validations": [
+        {
+            "field": "immatriculation",
+            "rules": "required"
+        },
+        {
+            "field": "date_debut_val",
+            "rules": "required"
+        },
+        {
+            "field": "date_fin_val",
+            "rules": "required"
+        },
+        {
+            "field": "piece_jointe",
+            "rules": "required"
+        },
+        {
+            "field": "montant",
+            "rules": "required"
+        },
+        {
+            "field": "engin_id",
+            "rules": "required|exists:engins,id"
+        }
+    ]
+}

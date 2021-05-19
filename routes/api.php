@@ -27,3 +27,12 @@ Route::group(['prefix' => 'auth'], function () {
     });
 
 });
+
+
+Route::group(['prefix' => 'engins'], function () {
+    Route::get('/', [App\Http\Controllers\CommentController::class, 'index']);
+    Route::post('/', [App\Http\Controllers\CommentController::class, 'create']);
+    Route::get('/{id}', [App\Http\Controllers\CommentController::class, 'show']);
+    Route::post('/{id}', [App\Http\Controllers\CommentController::class, 'update']);
+    Route::delete('/{id}', [App\Http\Controllers\CommentController::class, 'destroy']);
+});

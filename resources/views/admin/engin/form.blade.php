@@ -1,7 +1,27 @@
-<div class="form-group {{ $errors->has('type_engin') ? 'has-error' : ''}}">
-    <label for="type_engin" class="control-label">{{ 'Type Engin' }}</label>
-    <input class="form-control" name="type_engin" type="text" id="type_engin" value="{{ isset($engin->type_engin) ? $engin->type_engin : ''}}" required>
-    {!! $errors->first('type_engin', '<p class="help-block">:message</p>') !!}
+
+
+<div class="form-group {{ $errors->has('engintype_id') ? 'has-error' : ''}}">
+    <label for="engintype_id" class="control-label">{{ 'Engin Type' }}</label>
+    
+    <select class="form-control" name="engintype_id" type="number" id="engintype_id"
+        value="{{ isset($engin->engintype_id) ? $engin->engintype_id : '' }}"
+        required>
+
+        @foreach($enginTypes as $enginsT)
+            <option value="{{$enginsT->id}}" @if(isset($engin) && $engintype->id == $engin->engin_id) selected @endif>{{$enginsT->Type_engin}}</option>      
+        @endforeach
+        </select>
+
+
+    {!! $errors->first('engintype_id', '<p class="help-block">:message</p>') !!}
+</div>
+
+
+
+<div class="form-group {{ $errors->has('engin_name') ? 'has-error' : ''}}">
+    <label for="engin_name" class="control-label">{{ 'Engin Name' }}</label>
+    <input class="form-control" name="engin_name" type="text" id="engin_name" value="{{ isset($engin->engin_name) ? $engin->engin_name : ''}}" required>
+    {!! $errors->first('engin_name', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('immatriculation') ? 'has-error' : ''}}">
     <label for="immatriculation" class="control-label">{{ 'Immatriculation' }}</label>
@@ -25,7 +45,7 @@
 </div>
 <div class="form-group {{ $errors->has('date_de_mise_en_circulation') ? 'has-error' : ''}}">
     <label for="date_de_mise_en_circulation" class="control-label">{{ 'Date De Mise En Circulation' }}</label>
-    <input class="form-control" name="date_de_mise_en_circulation" type="text" id="date_de_mise_en_circulation" value="{{ isset($engin->date_de_mise_en_circulation) ? $engin->date_de_mise_en_circulation : ''}}" required>
+    <input class="form-control" name="date_de_mise_en_circulation" type="date" id="date_de_mise_en_circulation" value="{{ isset($engin->date_de_mise_en_circulation) ? $engin->date_de_mise_en_circulation : ''}}" required>
     {!! $errors->first('date_de_mise_en_circulation', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('carburant') ? 'has-error' : ''}}">
@@ -48,9 +68,22 @@
     <input class="form-control" name="Image" type="file" id="Image" value="{{ isset($engin->Image) ? $engin->Image : ''}}" required>
     {!! $errors->first('Image', '<p class="help-block">:message</p>') !!}
 </div>
+
+
 <div class="form-group {{ $errors->has('entreprise_id') ? 'has-error' : ''}}">
-    <label for="entreprise_id" class="control-label">{{ 'Entreprise Id' }}</label>
-    <input class="form-control" name="entreprise_id" type="number" id="entreprise_id" value="{{ isset($engin->entreprise_id) ? $engin->entreprise_id : ''}}" required>
+    <label for="entreprise_id" class="control-label">{{ 'Engin type' }}</label>
+
+
+    <select class="form-control" name="entreprise_id" type="number" id="entreprise_id"
+        value="{{ isset($engin->entreprise_id) ? $engin->entreprise_id : '' }}"
+        required>
+
+        @foreach($entreprises as $enterprise)
+            <option value="{{$enterprise->id}}" @if(isset($engin) && $enterprise->id == $engin->enterprise_id) selected @endif>{{$enterprise->nom_client}}</option>      
+        @endforeach
+        </select>
+
+
     {!! $errors->first('entreprise_id', '<p class="help-block">:message</p>') !!}
 </div>
 

@@ -1,16 +1,12 @@
 {
     "fields": [
         {
-            "name": "visite_technique",
-            "type": "file"
-        },
-        {
-            "name": "engin",
+            "name": "engin_name",
             "type": "string"
         },
         {
-            "name": "immatriculation",
-            "type": "string"
+            "name": "montant",
+            "type": "integer"
         },
         {
             "name": "date_debut_val",
@@ -51,10 +47,6 @@
     ],
     "validations": [
         {
-            "field": "visite_technique",
-            "rules": "required"
-        },
-        {
             "field": "date_debut_val",
             "rules": "required"
         },
@@ -71,7 +63,7 @@
             "rules": "required"
         },
         {
-            "field": "immatriculation",
+            "field": "montant",
             "rules": "required"
         },
         {

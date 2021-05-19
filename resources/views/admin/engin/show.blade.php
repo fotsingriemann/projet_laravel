@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            
+          
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Engin {{ $engin->id }}</div>
                     <div class="card-body">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $engin->id }}</td>
                                     </tr>
-                                    <tr><th> Type Engin </th><td> {{ $engin->type_engin }} </td></tr><tr><th> Immatriculation </th><td> {{ $engin->immatriculation }} </td></tr><tr><th> Marque Serie </th><td> {{ $engin->marque_serie }} </td></tr>
+                                    <tr><th> Engin Name </th><td> {{ $engin->engin_name }} </td></tr><tr><th> Immatriculation </th><td> {{ $engin->immatriculation }} </td></tr><tr><th> Marque Serie </th><td> {{ $engin->marque_serie }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

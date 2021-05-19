@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Models\Entreprise;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\Engintype;
 use App\Models\Engin;
 use Illuminate\Http\Request;
 
@@ -20,22 +20,9 @@ class EnginController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        if (!empty($keyword)) {
-            $engin = Engin::where('type_engin', 'LIKE', "%$keyword%")
-                ->orWhere('immatriculation', 'LIKE', "%$keyword%")
-                ->orWhere('marque_serie', 'LIKE', "%$keyword%")
-                ->orWhere('modele', 'LIKE', "%$keyword%")
-                ->orWhere('numero_chassis', 'LIKE', "%$keyword%")
-                ->orWhere('date_de_mise_en_circulation', 'LIKE', "%$keyword%")
-                ->orWhere('carburant', 'LIKE', "%$keyword%")
-                ->orWhere('couleur', 'LIKE', "%$keyword%")
-                ->orWhere('conduit_par', 'LIKE', "%$keyword%")
-                ->orWhere('Image', 'LIKE', "%$keyword%")
-                ->orWhere('entreprise_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
+        
             $engin = Engin::latest()->paginate($perPage);
-        }
+    
 
         return view('admin.engin.index', compact('engin'));
     }
@@ -47,7 +34,9 @@ class EnginController extends Controller
      */
     public function create()
     {
-        return view('admin.engin.create');
+        $enginTypes = Engintype::all();
+        $entreprises = Entreprise::all();
+        return view('admin.engin.create',compact('enginTypes','entreprises'));
     }
 
     /**
@@ -60,7 +49,7 @@ class EnginController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'type_engin' => 'required',
+			'engin_name' => 'required',
 			'immatriculation' => 'required',
 			'marque_serie' => 'required',
 			'modele' => 'required',
@@ -70,7 +59,8 @@ class EnginController extends Controller
 			'couleur' => 'required',
 			'conduit_par' => 'required',
 			'Image' => 'required',
-			'entreprise_id' => 'required|exists:entreprises,id'
+			'entreprise_id' => 'required|exists:entreprises,id',
+			'engintype_id' => 'required|exists:engintypes,id'
 		]);
         $requestData = $request->all();
                 if ($request->hasFile('Image')) {
@@ -122,7 +112,7 @@ class EnginController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'type_engin' => 'required',
+			'engin_name' => 'required',
 			'immatriculation' => 'required',
 			'marque_serie' => 'required',
 			'modele' => 'required',
@@ -132,7 +122,8 @@ class EnginController extends Controller
 			'couleur' => 'required',
 			'conduit_par' => 'required',
 			'Image' => 'required',
-			'entreprise_id' => 'required|exists:entreprises,id'
+			'entreprise_id' => 'required|exists:entreprises,id',
+			'engintype_id' => 'required|exists:engintypes,id'
 		]);
         $requestData = $request->all();
                 if ($request->hasFile('Image')) {

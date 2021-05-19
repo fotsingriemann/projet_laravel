@@ -3,12 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row">
+           
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Create New Engin</div>
+                    <div class="card-header">Create New Assurance</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/engin') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/assurance') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -20,10 +21,10 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/admin/engin') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/admin/assurance') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('admin.engin.form', ['formMode' => 'create'])
+                            @include ('admin.assurance.form', ['formMode' => 'create'])
 
                         </form>
 

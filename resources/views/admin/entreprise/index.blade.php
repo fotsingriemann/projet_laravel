@@ -5,7 +5,7 @@
         <div class="row">
             
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Entreprise</div>
                     <div class="card-body">
@@ -27,17 +27,27 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead>
+                            <table style="width: 100%;" id="example" classz="table table-hover table-striped table-bordered">
+                            <thead>
                                     <tr>
-                                        <th>#</th><th>Logo</th><th>Nom Client</th><th>Localisation</th><th>Actions</th>
+                                        <th>#</th>
+                                        {{-- <th>Logo</th> --}}
+                                        <th>Nom Client</th>
+                                        <th>Localisation</th>
+                                        <th>Responsable</th>
+                                        <th>Activité</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($entreprise as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="<?= $item->logo ?>" width="100px"></td><td>{{ $item->nom_client }}</td><td>{{ $item->localisation }}</td>
+                                        {{-- <td>{{ $item->logo }}</td> --}}
+                                        <td>{{ $item->nom_client }}</td>
+                                        <td>{{ $item->localisation }}</td>
+                                        <td>{{$item->responsable}}</td>
+                                        <td>{{$item->secteur_activite}}</td>
                                         <td>
                                             <a href="{{ url('/admin/entreprise/' . $item->id) }}" title="View Entreprise"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/entreprise/' . $item->id . '/edit') }}" title="Edit Entreprise"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

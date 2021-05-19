@@ -15,18 +15,20 @@ class CreateEnginsTable extends Migration
         Schema::create('engins', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('type_engin')->nullable();
+            $table->string('engin_name')->nullable();
             $table->string('immatriculation')->nullable();
             $table->string('marque_serie')->nullable();
             $table->string('modele')->nullable();
             $table->string('numero_chassis')->nullable();
-            $table->string('date_de_mise_en_circulation')->nullable();
+            $table->date('date_de_mise_en_circulation')->nullable();
             $table->string('carburant')->nullable();
             $table->string('couleur')->nullable();
             $table->string('conduit_par')->nullable();
             $table->string('Image')->nullable();
             $table->integer('entreprise_id')->unsigned();
+            $table->integer('engintype_id')->unsigned();
             $table->foreign('entreprise_id')->references('id')->on('entreprises')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('engintype_id')->references('id')->on('engintypes')->onDelete('cascade')->onUpdate('cascade');
             });
     }
 

@@ -1,0 +1,19 @@
+{
+    "fields": [
+        {
+            "name": "Type_engin",
+            "type": "string"
+        },
+        {
+            "name": "Description",
+            "type": "text"
+        }
+    ],
+       
+    "validations": [
+        {
+            "field": "Type_engin",
+            "rules": "required"
+        }
+     ]
+}

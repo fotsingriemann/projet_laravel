@@ -25,11 +25,15 @@ class Engin extends Model
      *
      * @var array
      */
-    protected $fillable = ['type_engin', 'immatriculation', 'marque_serie', 'modele', 'numero_chassis', 'date_de_mise_en_circulation', 'carburant', 'couleur', 'conduit_par', 'Image', 'entreprise_id'];
+    protected $fillable = ['engin_name', 'immatriculation', 'marque_serie', 'modele', 'numero_chassis', 'date_de_mise_en_circulation', 'carburant', 'couleur', 'conduit_par', 'Image', 'entreprise_id', 'engintype_id'];
 
     public function entreprise_id()
     {
         return $this->belongsTo('App\Models\entreprise');
+    }
+    public function engintype_id()
+    {
+        return $this->belongsTo('App\Models\engintype');
     }
     
 }

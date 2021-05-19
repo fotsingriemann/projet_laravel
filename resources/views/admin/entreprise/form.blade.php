@@ -15,12 +15,12 @@
 </div>
 <div class="form-group {{ $errors->has('telephone1') ? 'has-error' : ''}}">
     <label for="telephone1" class="control-label">{{ 'Telephone1' }}</label>
-    <input class="form-control" name="telephone1" type="number" id="telephone1" value="{{ isset($entreprise->telephone1) ? $entreprise->telephone1 : ''}}" required>
+    <input class="form-control" name="telephone1" type="text" id="telephone1" value="{{ isset($entreprise->telephone1) ? $entreprise->telephone1 : ''}}" required>
     {!! $errors->first('telephone1', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('telephone2') ? 'has-error' : ''}}">
     <label for="telephone2" class="control-label">{{ 'Telephone2' }}</label>
-    <input class="form-control" name="telephone2" type="number" id="telephone2" value="{{ isset($entreprise->telephone2) ? $entreprise->telephone2 : ''}}" required>
+    <input class="form-control" name="telephone2" type="text" id="telephone2" value="{{ isset($entreprise->telephone2) ? $entreprise->telephone2 : ''}}" required>
     {!! $errors->first('telephone2', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
@@ -66,5 +66,5 @@
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Mettre à jour' : 'Créer' }}">
 </div>
