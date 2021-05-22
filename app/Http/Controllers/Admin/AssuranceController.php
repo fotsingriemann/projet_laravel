@@ -20,7 +20,7 @@ class AssuranceController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-     
+ 
             $assurance = Assurance::latest()->paginate($perPage);
         
 
@@ -48,11 +48,12 @@ class AssuranceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'immatriculation' => 'required',
+			'engin_name' => 'required',
 			'date_debut_val' => 'required',
 			'date_fin_val' => 'required',
 			'piece_jointe' => 'required',
 			'montant' => 'required',
+			'assureur' => 'required',
 			'engin_id' => 'required|exists:engins,id'
 		]);
         $requestData = $request->all();
@@ -105,11 +106,12 @@ class AssuranceController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'immatriculation' => 'required',
+			'engin_name' => 'required',
 			'date_debut_val' => 'required',
 			'date_fin_val' => 'required',
 			'piece_jointe' => 'required',
 			'montant' => 'required',
+			'assureur' => 'required',
 			'engin_id' => 'required|exists:engins,id'
 		]);
         $requestData = $request->all();

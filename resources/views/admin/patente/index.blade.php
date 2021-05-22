@@ -30,7 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Engin Name</th><th>Montant</th><th>Date Debut Val</th><th>Actions</th>
+                                        <th>#</th><th>Engin Name</th><th>Montant</th><th>Date Debut Validation</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\Engin;
 use App\Models\Patente;
 use Illuminate\Http\Request;
 
@@ -20,18 +20,9 @@ class PatenteController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        if (!empty($keyword)) {
-            $patente = Patente::where('engin_name', 'LIKE', "%$keyword%")
-                ->orWhere('montant', 'LIKE', "%$keyword%")
-                ->orWhere('date_debut_val', 'LIKE', "%$keyword%")
-                ->orWhere('date_fin_val', 'LIKE', "%$keyword%")
-                ->orWhere('delivrer_par', 'LIKE', "%$keyword%")
-                ->orWhere('piece_jointe', 'LIKE', "%$keyword%")
-                ->orWhere('engin_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
+    
             $patente = Patente::latest()->paginate($perPage);
-        }
+        
 
         return view('admin.patente.index', compact('patente'));
     }
@@ -43,7 +34,8 @@ class PatenteController extends Controller
      */
     public function create()
     {
-        return view('admin.patente.create');
+        $engins = Engin::all();
+        return view('admin.patente.create',compact('engins'));
     }
 
     /**
@@ -98,9 +90,10 @@ class PatenteController extends Controller
      */
     public function edit($id)
     {
+        $engins = Engin::all();
         $patente = Patente::findOrFail($id);
 
-        return view('admin.patente.edit', compact('patente'));
+        return view('admin.patente.edit', compact('patente','engins'));
     }
 
     /**

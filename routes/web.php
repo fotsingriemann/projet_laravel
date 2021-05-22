@@ -32,4 +32,5 @@ Route::resource('admin/engintype', 'App\Http\Controllers\Admin\EngintypeControll
 Route::resource('admin/engin', 'App\Http\Controllers\Admin\EnginController');
 Route::resource('admin/patente', 'App\Http\Controllers\Admin\PatenteController');
 Route::resource('admin/visite-technique', 'App\Http\Controllers\Admin\VisiteTechniqueController');
-Route::resource('admin/assurance', 'App\Http\Controllers\Admin\AssuranceController');
+Route::resource('admin/patente', 'App\Http\Controllers\Admin\PatenteController');
+Route::resource('admin/visite-technique', 'App\Http\Controllers\Admin\VisiteTechniqueController');

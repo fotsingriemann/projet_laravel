@@ -25,7 +25,7 @@ class Assurance extends Model
      *
      * @var array
      */
-    protected $fillable = ['assureur', 'montant', 'date_debut_val', 'date_fin_val', 'piece_jointe', 'engin_id'];
+    protected $fillable = ['engin_name', 'engin_id', 'assureur', 'montant', 'date_debut_val', 'date_fin_val', 'piece_jointe'];
 
     public function engin_id()
     {

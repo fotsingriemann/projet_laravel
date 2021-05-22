@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
-use App\Models\Engin;
+use App\VisiteTechnique;
 use Illuminate\Http\Request;
 
-class EnginApiController extends Controller
+class VisiteTechniqueApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,9 @@ class EnginApiController extends Controller
      */
     public function index(Request $request)
     {
-        $engins = Engin::latest()->paginate(25);
+        $visite_techniques = VisiteTechnique::latest()->paginate(25);
 
-        return $engins;
+        return $visite_techniques;
     }
 
     /**
@@ -31,11 +30,10 @@ class EnginApiController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump($request);
-        // die;
-        $engin = Engin::create($request->all());
+        
+        $visite_technique = VisiteTechnique::create($request->all());
 
-        return response()->json($engin, 201);
+        return response()->json($visite_technique, 201);
     }
 
     /**
@@ -47,9 +45,9 @@ class EnginApiController extends Controller
      */
     public function show($id)
     {
-        $engin = Engin::findOrFail($id);
+        $visite_technique = VisiteTechnique::findOrFail($id);
 
-        return $engin;
+        return $visite_technique;
     }
 
     /**
@@ -63,10 +61,10 @@ class EnginApiController extends Controller
     public function update(Request $request, $id)
     {
         
-        $engin = Engin::findOrFail($id);
-        $engin->update($request->all());
+        $visite_technique = VisiteTechnique::findOrFail($id);
+        $visite_technique->update($request->all());
 
-        return response()->json($engin, 200);
+        return response()->json($visite_technique, 200);
     }
 
     /**
@@ -78,7 +76,7 @@ class EnginApiController extends Controller
      */
     public function destroy($id)
     {
-        Engin::destroy($id);
+        VisiteTechnique::destroy($id);
 
         return response()->json(null, 204);
     }

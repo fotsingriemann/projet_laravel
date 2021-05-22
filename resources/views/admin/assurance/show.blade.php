@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-        
+           
 
             <div class="col-md-12">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $assurance->id }}</td>
                                     </tr>
-                                    <tr><th> Assureur </th><td> {{ $assurance->assureur }} </td></tr><tr><th> Montant </th><td> {{ $assurance->montant }} </td></tr><tr><th> Immatriculation </th><td> {{ $assurance->immatriculation }} </td></tr>
+                                    <tr><th> Engin Name </th><td> {{ $assurance->engin_name }} </td></tr><tr><th> Montant </th><td> {{ $assurance->montant }} </td></tr><tr><th> Assureur </th><td> {{ $assurance->assureur }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

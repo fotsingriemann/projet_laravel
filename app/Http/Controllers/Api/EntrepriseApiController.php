@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\Engin;
+use App\Models\Entreprise;
 use Illuminate\Http\Request;
 
-class EnginApiController extends Controller
+class EntrepriseApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class EnginApiController extends Controller
      */
     public function index(Request $request)
     {
-        $engins = Engin::latest()->paginate(25);
+        $entreprise = Entreprise::latest()->paginate(25);
 
-        return $engins;
+        return $entreprise;
     }
 
     /**
@@ -31,11 +31,10 @@ class EnginApiController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump($request);
-        // die;
-        $engin = Engin::create($request->all());
+        
+        $entreprise = Entreprise::create($request->all());
 
-        return response()->json($engin, 201);
+        return response()->json($entreprise, 201);
     }
 
     /**
@@ -47,9 +46,9 @@ class EnginApiController extends Controller
      */
     public function show($id)
     {
-        $engin = Engin::findOrFail($id);
+        $entreprise = Entreprise::findOrFail($id);
 
-        return $engin;
+        return $entreprise;
     }
 
     /**
@@ -63,10 +62,10 @@ class EnginApiController extends Controller
     public function update(Request $request, $id)
     {
         
-        $engin = Engin::findOrFail($id);
-        $engin->update($request->all());
+        $entreprise = Entreprise::findOrFail($id);
+        $entreprise->update($request->all());
 
-        return response()->json($engin, 200);
+        return response()->json($entreprise, 200);
     }
 
     /**
@@ -78,7 +77,7 @@ class EnginApiController extends Controller
      */
     public function destroy($id)
     {
-        Engin::destroy($id);
+        Entreprise::destroy($id);
 
         return response()->json(null, 204);
     }

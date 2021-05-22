@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-           
+            
 
             <div class="col-md-12">
                 <div class="card">
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $patente->id }}</td>
                                     </tr>
-                                    <tr><th> Engin Name </th><td> {{ $patente->engin_name }} </td></tr><tr><th> Montant </th><td> {{ $patente->montant }} </td></tr><tr><th> Date Debut Val </th><td> {{ $patente->date_debut_val }} </td></tr>
+                                    <tr><th> Engin Name </th><td> {{ $patente->engin_name }} </td></tr><tr><th> Montant </th><td> {{ $patente->montant }} </td></tr><tr><th> Date Debut Validation </th><td> {{ $patente->date_debut_val }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

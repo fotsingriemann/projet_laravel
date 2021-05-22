@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\Engin;
 use App\Models\VisiteTechnique;
 use Illuminate\Http\Request;
 
@@ -20,18 +20,8 @@ class VisiteTechniqueController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        if (!empty($keyword)) {
-            $visitetechnique = VisiteTechnique::where('engin_name', 'LIKE', "%$keyword%")
-                ->orWhere('montant', 'LIKE', "%$keyword%")
-                ->orWhere('date_debut_val', 'LIKE', "%$keyword%")
-                ->orWhere('date_fin_val', 'LIKE', "%$keyword%")
-                ->orWhere('effectuer_par', 'LIKE', "%$keyword%")
-                ->orWhere('piece_jointe', 'LIKE', "%$keyword%")
-                ->orWhere('engin_id', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
-        } else {
             $visitetechnique = VisiteTechnique::latest()->paginate($perPage);
-        }
+        
 
         return view('admin.visite-technique.index', compact('visitetechnique'));
     }
@@ -43,7 +33,8 @@ class VisiteTechniqueController extends Controller
      */
     public function create()
     {
-        return view('admin.visite-technique.create');
+        $engins = Engin::all();
+        return view('admin.visite-technique.create',compact('engins'));
     }
 
     /**
@@ -56,10 +47,10 @@ class VisiteTechniqueController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'engin_name' => 'required',
 			'date_debut_val' => 'required',
 			'date_fin_val' => 'required',
 			'effectuer_par' => 'required',
-			'engin' => 'required',
 			'montant' => 'required',
 			'engin_id' => 'required|exists:engins,id'
 		]);
@@ -83,6 +74,7 @@ class VisiteTechniqueController extends Controller
      */
     public function show($id)
     {
+       
         $visitetechnique = VisiteTechnique::findOrFail($id);
 
         return view('admin.visite-technique.show', compact('visitetechnique'));
@@ -98,8 +90,8 @@ class VisiteTechniqueController extends Controller
     public function edit($id)
     {
         $visitetechnique = VisiteTechnique::findOrFail($id);
-
-        return view('admin.visite-technique.edit', compact('visitetechnique'));
+        $engins = Engin::all();
+        return view('admin.visite-technique.edit', compact('visitetechnique','engins'));
     }
 
     /**

@@ -15,13 +15,13 @@ class CreateAssurancesTable extends Migration
         Schema::create('assurances', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('engin_name')->nullable();
+            $table->integer('engin_id')->unsigned();
             $table->string('assureur')->nullable();
             $table->integer('montant')->nullable();
-            $table->string('immatriculation')->unique();
             $table->date('date_debut_val')->nullable();
             $table->date('date_fin_val')->nullable();
             $table->string('piece_jointe')->nullable();
-            $table->integer('engin_id')->unsigned();
             $table->foreign('engin_id')->references('id')->on('engins')->onDelete('cascade')->onUpdate('cascade');
             });
     }

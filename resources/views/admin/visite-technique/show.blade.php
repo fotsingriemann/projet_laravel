@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-           
+         
 
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">VisiteTechnique {{ $visitetechnique->id }}</div>
+                    <div class="card-header">Visite Technique {{ $visitetechnique->id }}</div>
                     <div class="card-body">
 
                         <a href="{{ url('/admin/visite-technique') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
@@ -27,7 +27,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $visitetechnique->id }}</td>
                                     </tr>
-                                    <tr><th> Engin Name </th><td> {{ $visitetechnique->engin_name }} </td></tr><tr><th> Montant </th><td> {{ $visitetechnique->montant }} </td></tr><tr><th> Date Debut Val </th><td> {{ $visitetechnique->date_debut_val }} </td></tr>
+                                    <tr><th> Engin Name </th><td> {{ $visitetechnique->engin_name }} </td></tr><tr><th> Montant </th><td> {{ $visitetechnique->montant }} </td></tr><tr><th> Date Debut Validation </th><td> {{ $visitetechnique->date_debut_val }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

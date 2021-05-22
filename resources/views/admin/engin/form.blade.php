@@ -8,7 +8,7 @@
         required>
 
         @foreach($enginTypes as $enginsT)
-            <option value="{{$enginsT->id}}" @if(isset($engin) && $engintype->id == $engin->engin_id) selected @endif>{{$enginsT->Type_engin}}</option>      
+            <option value="{{$enginsT->id}}" @if(isset($engin) && $enginsT->id == $engin->engin_id) selected @endif>{{$enginsT->Type_engin}}</option>      
         @endforeach
         </select>
 
@@ -71,7 +71,7 @@
 
 
 <div class="form-group {{ $errors->has('entreprise_id') ? 'has-error' : ''}}">
-    <label for="entreprise_id" class="control-label">{{ 'Engin type' }}</label>
+    <label for="entreprise_id" class="control-label">{{ 'Entreprise of' }}</label>
 
 
     <select class="form-control" name="entreprise_id" type="number" id="entreprise_id"

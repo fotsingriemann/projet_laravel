@@ -3,14 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row">
-           
+            
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Visite technique</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/visite-technique/create') }}" class="btn btn-success btn-sm" title="Add New VisiteTechnique">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Update New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         <form method="GET" action="{{ url('/admin/visite-technique') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -30,7 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Engin Name</th><th>Montant</th><th>Date Debut Val</th><th>Actions</th>
+                                        <th>#</th><th>Engin Name</th><th>Montant</th><th>Date Debut Validation</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

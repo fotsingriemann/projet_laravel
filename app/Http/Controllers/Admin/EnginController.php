@@ -96,9 +96,10 @@ class EnginController extends Controller
      */
     public function edit($id)
     {
+        $enginTypes = Engintype::all();
+        $entreprises = Entreprise::all();
         $engin = Engin::findOrFail($id);
-
-        return view('admin.engin.edit', compact('engin'));
+        return view('admin.engin.edit', compact('engin','enginTypes','entreprises'));
     }
 
     /**

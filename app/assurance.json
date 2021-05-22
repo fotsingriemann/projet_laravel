@@ -1,16 +1,21 @@
 {
     "fields": [
         {
+            "name": "engin_name",
+            "type": "string"
+        },
+        {
+            "name": "engin_id",
+            "type": "integer#unsigned"
+        },
+
+        {
             "name": "assureur",
             "type": "string"
         },
         {
             "name": "montant",
             "type": "integer"
-        },
-        {
-            "name": "immatriculation",
-            "type": "string"
         },
         {
             "name": "date_debut_val",
@@ -23,12 +28,7 @@
         {
             "name": "piece_jointe",
             "type": "file"
-        },
-        {
-            "name": "engin_id",
-            "type": "integer#unsigned"
         }
-
     ],
     "foreign_keys": [
         {
@@ -47,7 +47,7 @@
     ],
     "validations": [
         {
-            "field": "immatriculation",
+            "field": "engin_name",
             "rules": "required"
         },
         {
@@ -64,6 +64,10 @@
         },
         {
             "field": "montant",
+            "rules": "required"
+        },
+        {
+            "field": "assureur",
             "rules": "required"
         },
         {

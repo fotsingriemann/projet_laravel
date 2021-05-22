@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
-use App\Models\Engin;
+use App\Models\Assurance;
 use Illuminate\Http\Request;
 
-class EnginApiController extends Controller
+class AssuranceApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class EnginApiController extends Controller
      */
     public function index(Request $request)
     {
-        $engins = Engin::latest()->paginate(25);
+        $assurance = Assurance::latest()->paginate(25);
 
-        return $engins;
+        return $assurance;
     }
 
     /**
@@ -31,11 +31,10 @@ class EnginApiController extends Controller
      */
     public function store(Request $request)
     {
-        // var_dump($request);
-        // die;
-        $engin = Engin::create($request->all());
+        
+        $assurance = Assurance::create($request->all());
 
-        return response()->json($engin, 201);
+        return response()->json($assurance, 201);
     }
 
     /**
@@ -47,9 +46,9 @@ class EnginApiController extends Controller
      */
     public function show($id)
     {
-        $engin = Engin::findOrFail($id);
+        $assurance = Assurance::findOrFail($id);
 
-        return $engin;
+        return $assurance;
     }
 
     /**
@@ -63,10 +62,10 @@ class EnginApiController extends Controller
     public function update(Request $request, $id)
     {
         
-        $engin = Engin::findOrFail($id);
-        $engin->update($request->all());
+        $assurance = Assurance::findOrFail($id);
+        $assurance->update($request->all());
 
-        return response()->json($engin, 200);
+        return response()->json($assurance, 200);
     }
 
     /**
@@ -78,7 +77,7 @@ class EnginApiController extends Controller
      */
     public function destroy($id)
     {
-        Engin::destroy($id);
+        Assurance::destroy($id);
 
         return response()->json(null, 204);
     }
